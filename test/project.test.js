@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { createProject, listTemplates, saveTemplate } from "../src/project.js";
+import { moveSelection, orderTemplates } from "../src/tui.js";
 
 async function fixture(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), "flowkit-test-"));
@@ -59,4 +60,24 @@ test("requires --force before replacing a saved template", async (t) => {
   await writeFile(path.join(source, "index.html"), "first");
   await saveTemplate({ name: "mine", source, customTemplateRoot: custom, force: false });
   await assert.rejects(saveTemplate({ name: "mine", source, customTemplateRoot: custom, force: false }), /ya existe/);
+});
+
+test("moves the menu selection with wrapping arrow navigation", () => {
+  assert.equal(moveSelection(0, "up", 3), 2);
+  assert.equal(moveSelection(2, "down", 3), 0);
+  assert.equal(moveSelection(1, "down", 3), 2);
+  assert.equal(moveSelection(1, "left", 3), 1);
+});
+
+test("puts the HTML template first in the create-project menu", () => {
+  const ordered = orderTemplates([
+    { name: "z-custom", custom: true },
+    { name: "dashboard", custom: false },
+    { name: "portfolio", custom: false },
+    { name: "html", custom: false },
+    { name: "a-custom", custom: true },
+  ]);
+  assert.deepEqual(ordered.map(({ name }) => name), [
+    "html", "portfolio", "dashboard", "a-custom", "z-custom",
+  ]);
 });

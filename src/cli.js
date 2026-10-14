@@ -5,17 +5,19 @@ import {
   listTemplates,
   saveTemplate,
 } from "./project.js";
+import { runInteractive } from "./tui.js";
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 function usage() {
-  return `FlowKit - crea proyectos web desde la terminal
+  return `Project Flow - plantillas para crear proyectos
 
 Uso:
-  flowkit create <nombre> [--template <plantilla>]
-  flowkit template list
-  flowkit template save <nombre> [--from <directorio>] [--force]
-  flowkit help
+  project-flow
+  project-flow create <nombre> [--template <plantilla>]
+  project-flow template list
+  project-flow template save <nombre> [--from <directorio>] [--force]
+  project-flow help
 
 Plantillas incluidas: html, portfolio, dashboard
 Las plantillas guardadas se almacenan en ~/.flowkit/templates.
@@ -55,7 +57,18 @@ export async function run(args, options = {}) {
   const templateRoot = options.templateRoot ?? path.join(packageRoot, "templates");
   const customTemplateRoot = path.join(home, ".flowkit", "templates");
 
-  if (args.length === 0 || args[0] === "help" || args[0] === "--help" || args[0] === "-h") {
+  if (args.length === 0) {
+    await runInteractive({
+      input: options.input,
+      output: options.output,
+      cwd,
+      templateRoot,
+      customTemplateRoot,
+    });
+    return;
+  }
+
+  if (args[0] === "help" || args[0] === "--help" || args[0] === "-h") {
     io.log(usage());
     return;
   }
@@ -64,7 +77,7 @@ export async function run(args, options = {}) {
   if (command === "create") {
     const { positional, flags } = parseFlags(args.slice(1));
     if (positional.length !== 1) {
-      throw new Error("Uso: flowkit create <nombre> [--template <plantilla>]");
+      throw new Error("Uso: project-flow create <nombre> [--template <plantilla>]");
     }
     const destination = await createProject({
       name: positional[0],
@@ -91,7 +104,7 @@ export async function run(args, options = {}) {
     if (action === "save") {
       const { positional, flags } = parseFlags(args.slice(2));
       if (positional.length !== 1) {
-        throw new Error("Uso: flowkit template save <nombre> [--from <directorio>] [--force]");
+        throw new Error("Uso: project-flow template save <nombre> [--from <directorio>] [--force]");
       }
       const savedAt = await saveTemplate({
         name: positional[0],

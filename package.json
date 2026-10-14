@@ -1,9 +1,10 @@
 {
-  "name": "flowkit-cli",
+  "name": "project-flow",
   "version": "0.1.0",
   "description": "Crea proyectos web rapidamente desde la terminal y guarda tus propias plantillas.",
   "type": "module",
   "bin": {
+    "project-flow": "./bin/project-flow.js",
     "flowkit": "./bin/flowkit.js"
   },
   "engines": {

@@ -29,7 +29,7 @@ async function getTemplate(name, templateRoot, customTemplateRoot) {
 
   if (await exists(customPath)) return customPath;
   if (await exists(bundledPath)) return bundledPath;
-  throw new Error(`No existe la plantilla "${name}". Ejecuta "flowkit template list" para ver las disponibles.`);
+  throw new Error(`No existe la plantilla "${name}". Ejecuta "project-flow template list" para ver las disponibles.`);
 }
 
 async function replaceProjectName(directory, name) {
