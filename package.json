@@ -1,0 +1,16 @@
+{
+  "name": "flowkit-cli",
+  "version": "0.1.0",
+  "description": "Crea proyectos web rapidamente desde la terminal y guarda tus propias plantillas.",
+  "type": "module",
+  "bin": {
+    "flowkit": "./bin/flowkit.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

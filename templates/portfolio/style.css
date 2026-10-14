@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root { font-family: "DM Sans", sans-serif; color: #20201e; background: #f8f7f4; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+.topbar, footer { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 7vw; }
+.brand { font-family: Manrope, sans-serif; font-weight: 800; }
+nav { display: flex; gap: 2rem; font-size: .9rem; }
+.hero { padding: 10rem 12vw 9rem; background: #e9e7df; }
+.eyebrow { color: #6e6b62; font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+h1, h2, h3 { font-family: Manrope, sans-serif; }
+h1 { margin: 1.5rem 0; font-size: clamp(3rem, 8vw, 7rem); line-height: 1.02; letter-spacing: -.07em; }
+h1 span { color: #77756e; }
+.intro { max-width: 34rem; color: #65635d; font-size: 1.1rem; line-height: 1.7; }
+.button { display: inline-flex; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem 1.25rem; color: white; background: #22221f; border-radius: 99px; }
+.work, .about { padding: 7rem 7vw; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; }
+h2 { max-width: 44rem; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -.05em; }
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.project { min-height: 24rem; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border-radius: 1rem; }
+.project span { font-size: .8rem; }
+.project h3 { margin: 0; font-size: 2rem; }
+.project-one { background: #e2c9b3; }
+.project-two { background: #c8d1c5; }
+.project-three { grid-column: span 2; min-height: 18rem; background: #d6d1e2; }
+.about { background: #efeee9; }
+.about h2 { max-width: 54rem; }
+footer { border-top: 1px solid #e2e0da; }
+@media (max-width: 640px) {
+  .topbar, footer { padding-inline: 1.25rem; }
+  nav { gap: .8rem; font-size: .78rem; }
+  .hero { padding: 7rem 1.5rem; }
+  .work, .about { padding: 4rem 1.25rem; }
+  .section-heading { display: block; }
+  .projects { grid-template-columns: 1fr; }
+  .project, .project-three { grid-column: auto; min-height: 18rem; }
+}

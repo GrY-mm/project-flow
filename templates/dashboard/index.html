@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{projectName}} | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#">◈ {{projectName}}</a>
+      <p class="nav-label">ESPACIO DE TRABAJO</p>
+      <a class="nav-item active" href="#">▦ <span>Resumen</span></a>
+      <a class="nav-item" href="#">◷ <span>Actividad</span></a>
+      <a class="nav-item" href="#">◇ <span>Proyectos</span></a>
+      <div class="profile"><div class="avatar">FK</div><span>Tu cuenta<small>Plan gratuito</small></span></div>
+    </aside>
+    <main class="main">
+      <header><div><p class="muted">LUNES, 14 DE OCTUBRE</p><h1>Buenos dias, {{projectName}}</h1></div><button>+ Nuevo proyecto</button></header>
+      <section class="stats">
+        <article><p>Proyectos activos</p><strong>12</strong><small class="up">↗ 8.2% este mes</small></article>
+        <article><p>Horas registradas</p><strong>84.5</strong><small class="up">↗ 12.4% este mes</small></article>
+        <article><p>Tareas completadas</p><strong>36</strong><small>De 48 tareas totales</small></article>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Proyectos recientes</h2><p class="muted">Sigue el progreso de tu equipo</p></div><a href="#">Ver todos →</a></div>
+        <div class="table-wrap"><table><thead><tr><th>PROYECTO</th><th>ESTADO</th><th>PROGRESO</th><th>FECHA LIMITE</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dot purple"></span>Rediseño web</td><td><span class="tag in-progress">En progreso</span></td><td><div class="progress"><i style="width:72%"></i></div></td><td>24 oct, 2026</td></tr>
+            <tr><td><span class="dot blue"></span>App movil</td><td><span class="tag review">En revision</span></td><td><div class="progress"><i style="width:48%"></i></div></td><td>02 nov, 2026</td></tr>
+            <tr><td><span class="dot green"></span>Campana de marca</td><td><span class="tag done">Completado</span></td><td><div class="progress"><i style="width:100%"></i></div></td><td>10 oct, 2026</td></tr>
+          </tbody></table></div>
+      </section>
+    </main>
+  </body>
+</html>

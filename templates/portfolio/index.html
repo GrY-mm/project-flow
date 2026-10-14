@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio de {{projectName}}">
+    <title>{{projectName}} | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#">{{projectName}}</a>
+      <nav aria-label="Navegacion principal">
+        <a href="#trabajo">Trabajo</a>
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="mailto:hola@example.com">Contacto</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Diseño y desarrollo digital</p>
+        <h1>Ideas claras.<br><span>Experiencias memorables.</span></h1>
+        <p class="intro">Hola, soy {{projectName}}. Creo productos digitales cuidados, utiles y hechos para las personas.</p>
+        <a class="button" href="#trabajo">Ver proyectos <span aria-hidden="true">↘</span></a>
+      </section>
+      <section id="trabajo" class="work">
+        <div class="section-heading"><p class="eyebrow">Seleccion</p><h2>Proyectos destacados</h2></div>
+        <div class="projects">
+          <article class="project project-one"><span>01 / Branding</span><h3>Forma Studio</h3></article>
+          <article class="project project-two"><span>02 / Producto digital</span><h3>Orbit Finance</h3></article>
+          <article class="project project-three"><span>03 / Direccion de arte</span><h3>Casa Nube</h3></article>
+        </div>
+      </section>
+      <section id="sobre-mi" class="about"><p class="eyebrow">Un poco sobre mi</p><h2>Convirtiendo problemas complejos en soluciones sencillas.</h2></section>
+    </main>
+    <footer>Disponible para nuevos proyectos <a href="mailto:hola@example.com">Hablemos ↗</a></footer>
+  </body>
+</html>
